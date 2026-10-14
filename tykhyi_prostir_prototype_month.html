@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тихий простір — запис на консультацію</title>
+<style>
+:root{--bg:#f5f2ed;--paper:#fffdf9;--ink:#27352f;--muted:#78827b;--green:#355c4a;--green2:#e4eee6;--line:#e8e4dc;--gold:#d8b982;--shadow:0 18px 50px #25372d12}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.app{max-width:1080px;margin:auto;min-height:100vh;padding:24px 22px 42px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:-.3px}.logo{width:42px;height:42px;border-radius:15px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:21px}.brand small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:3px;letter-spacing:0}.pill{font-size:12px;color:var(--green);background:var(--green2);padding:9px 13px;border-radius:99px}
+.layout{display:grid;grid-template-columns: .9fr 1.1fr;gap:22px;align-items:stretch}.intro,.panel{background:var(--paper);border:1px solid #ece8e0;border-radius:26px;box-shadow:var(--shadow)}.intro{padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:590px;overflow:hidden;position:relative}.eyebrow{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#738778;font-weight:700}.intro h1{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-1.8px;margin:18px 0}.intro p{color:#6f7a72;line-height:1.7;font-size:15px;max-width:350px}.leaf{width:190px;height:190px;border-radius:62% 38% 60% 40%;background:#e5ece3;position:absolute;right:-45px;bottom:58px;transform:rotate(-22deg)}.leaf:before,.leaf:after{content:"";position:absolute;background:#c4d5c4;border-radius:100% 0 100% 0;width:80px;height:125px;transform:rotate(26deg);left:28px;top:15px}.leaf:after{left:85px;top:58px;transform:rotate(75deg);background:#d2dfd0}.quote{position:relative;z-index:1;background:#ffffffc9;border:1px solid #fff;border-radius:16px;padding:16px;max-width:280px;font-size:13px;line-height:1.5;color:#53645a}.quote strong{display:block;margin-top:8px;color:var(--green);font-size:12px}
+.panel{padding:28px;min-height:590px}.steps{display:flex;gap:8px;margin-bottom:27px}.step{height:4px;border-radius:4px;background:#e8e7df;flex:1}.step.active{background:var(--green)}.screen{display:none}.screen.active{display:block}.screen h2{font-size:25px;letter-spacing:-.7px;margin:0 0 8px}.sub{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 24px}.service{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:23px}.service-icon{width:46px;height:46px;border-radius:14px;background:var(--green2);display:grid;place-items:center;font-size:21px}.service-info{flex:1}.service-info b{display:block;font-size:14px}.service-info span{display:block;color:var(--muted);font-size:12px;margin-top:5px}.price{font-weight:700;font-size:18px;white-space:nowrap}.price small{font-weight:400;font-size:11px;color:var(--muted)}.label{font-size:12px;font-weight:700;margin:20px 0 12px;display:block}.month-head{display:flex;align-items:center;justify-content:space-between;margin:4px 0 12px}.month-title{font-size:14px;font-weight:700;text-transform:capitalize}.month-nav{display:flex;gap:6px}.month-nav button{border:1px solid var(--line);background:#fff;border-radius:9px;width:32px;height:30px;cursor:pointer;color:var(--green);font-size:18px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.weekday{text-align:center;font-size:10px;color:var(--muted);padding:5px 0}.date{border:1px solid transparent;background:#fff;border-radius:10px;min-height:42px;padding:5px 1px;text-align:center;cursor:pointer;color:var(--ink);font:inherit;position:relative}.date b{font-size:13px;display:block}.date small{display:block;font-size:9px;color:var(--muted);margin-top:3px}.date.selected{background:var(--green);border-color:var(--green);color:#fff}.date.selected small{color:#dce9df}.date.unavailable{background:#f0eee8;color:#b7b8b1;cursor:not-allowed}.date.empty{visibility:hidden;pointer-events:none}.date .dot{display:block;width:5px;height:5px;border-radius:50%;background:#79a487;margin:3px auto 0}.date.selected .dot{background:#fff}.calendar-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted);margin-top:9px}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#79a487;margin-right:4px}.legend-off{display:inline-block;width:7px;height:7px;border-radius:2px;background:#e1ded5;margin-right:4px}.times{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.time{padding:12px 6px;border-radius:11px;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;font-size:13px;color:var(--ink)}.time:hover,.date:hover{border-color:#8aa594}.time.selected{background:var(--green2);border-color:var(--green);color:var(--green);font-weight:700}.time:disabled{background:#f3f1ec;color:#b7b8b1;text-decoration:line-through;cursor:not-allowed}.actions{display:flex;gap:10px;margin-top:25px}.btn{border:0;border-radius:13px;padding:14px 17px;background:var(--green);color:white;font:inherit;font-size:14px;font-weight:650;cursor:pointer;flex:1}.btn:hover{background:#284938}.btn.secondary{background:#f0eee8;color:#4c5b51;flex:0 0 auto}.btn:disabled{opacity:.45;cursor:not-allowed}.note{color:var(--muted);font-size:11px;line-height:1.5;margin-top:17px}.field{display:block;margin:16px 0}.field span{display:block;font-size:12px;font-weight:650;margin-bottom:7px}.field input{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;font:inherit;outline:none}.field input:focus{border-color:#7d9c87}.summary{background:#f4f6f0;border-radius:16px;padding:16px;margin:20px 0;font-size:13px;line-height:1.8}.summary strong{color:var(--green)}.success{text-align:center;padding:28px 8px}.success .check{width:66px;height:66px;border-radius:50%;background:var(--green2);color:var(--green);display:grid;place-items:center;font-size:30px;margin:0 auto 20px}.success p{color:var(--muted);line-height:1.7;font-size:14px}.admin{margin-top:22px;background:#eae8e0;border-radius:16px;padding:14px 16px;font-size:12px;color:#69736a;display:flex;justify-content:space-between;gap:12px}.admin button{border:0;background:transparent;color:var(--green);font-weight:700;cursor:pointer;font:inherit}.toast{font-size:12px;color:#9a5d3d;margin-top:10px;min-height:16px}
+@media(max-width:760px){.app{padding:16px 13px 28px}.top{margin-bottom:17px}.layout{grid-template-columns:1fr}.intro{min-height:260px;padding:25px}.intro h1{font-size:35px;max-width:300px}.intro p{max-width:280px}.leaf{width:130px;height:130px;right:-25px;bottom:28px}.quote{max-width:230px}.panel{padding:22px;min-height:520px}.pill{display:none}.dates{gap:5px}.date{padding:10px 2px}.times{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">☼</div><div>Тихий простір<small>Психологічні консультації</small></div></div>
+    <div class="pill">Дбайливо до себе · 45 хв</div>
+  </header>
+  <main class="layout">
+    <section class="intro">
+      <div><div class="eyebrow">Місце для вас</div><h1>Зробіть паузу.<br>Почуйте себе.</h1><p>Іноді достатньо розмови, щоб побачити ситуацію по-новому. Оберіть зручний час для своєї консультації.</p></div>
+      <div class="quote">«Турбота про себе — це не розкіш, а важлива частина життя».<strong>Ваш простір підтримки</strong></div>
+      <div class="leaf"></div>
+    </section>
+    <section class="panel">
+      <div class="steps"><div class="step active" id="bar1"></div><div class="step" id="bar2"></div><div class="step" id="bar3"></div></div>
+      <section class="screen active" id="screen1">
+        <h2>Запишіться на сесію</h2><p class="sub">Оберіть дату та вільний час, який вам підходить.</p>
+        <div class="service"><div class="service-icon">☁</div><div class="service-info"><b>PWS-сесія</b><span>Індивідуальна консультація · 45 хв</span></div><div class="price">$50<small> / сесія</small></div></div>
+        <span class="label">1. Оберіть дату</span><div class="month-head"><div class="month-title" id="monthTitle"></div><div class="month-nav"><button type="button" id="prevMonth" aria-label="Попередній місяць">‹</button><button type="button" id="nextMonth" aria-label="Наступний місяць">›</button></div></div><div class="calendar" id="calendar"></div><div class="calendar-legend"><span><i class="legend-dot"></i>Є вільні години</span><span><i class="legend-off"></i>Вихідний / минула дата</span></div>
+        <span class="label">2. Вільний час</span><div class="times" id="times"></div>
+        <div class="toast" id="timeNote">Сірим позначено демонстраційно зайняті години.</div>
+        <div class="actions"><button class="btn" id="continue" disabled>Продовжити →</button></div>
+        <p class="note">Пн–Пт · 08:00–13:00 та 14:00–17:00. У вихідні консультації не проводяться. Зараз це демоверсія — запис не надсилається психологу.</p>
+      </section>
+      <section class="screen" id="screen2">
+        <h2>Ваші дані</h2><p class="sub">Залиште контакт, щоб у реальному боті психолог міг підтвердити запис.</p>
+        <div class="summary" id="summary"></div>
+        <label class="field"><span>Ваше ім’я</span><input id="name" placeholder="Як до вас звертатися?" autocomplete="name"></label>
+        <label class="field"><span>Telegram username або телефон</span><input id="contact" placeholder="@username або +380…" autocomplete="tel"></label>
+        <label class="field"><span>Ваш запит (необов’язково)</span><input id="comment" placeholder="Опишіть, із чим хочете попрацювати"></label>
+        <div class="toast" id="formError"></div>
+        <div class="actions"><button class="btn secondary" id="back">← Назад</button><button class="btn" id="confirm">Підтвердити запис</button></div>
+        <p class="note">У прототипі дані нікуди не передаються та не зберігаються.</p>
+      </section>
+      <section class="screen" id="screen3">
+        <div class="success"><div class="check">✓</div><h2>Дякуємо за довіру!</h2><p>Ви пройшли демонстраційний сценарій запису. У справжньому боті тут з’явиться підтвердження та нагадування в Telegram.</p><div class="summary" id="finalSummary" style="text-align:left"></div><button class="btn" id="restart">Обрати інший час</button></div>
+      </section>
+    </section>
+  </main>
+  <div class="admin"><span>Демо-прототип · без оплати та бекенду</span><button id="adminToggle">Переглянути логіку запису ↗</button></div>
+</div>
+<script>
+const dayNames=['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
+const monthNames=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+const monthLabels=['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
+const today=new Date(); today.setHours(0,0,0,0);
+let chosenDate=null,chosenTime=null,viewYear=today.getFullYear(),viewMonth=today.getMonth();
+const calendarEl=document.getElementById('calendar'),timesEl=document.getElementById('times');
+function fmt(d){return `${d.getDate()} ${monthNames[d.getMonth()]}`}
+function sameDay(a,b){return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate()}
+function renderCalendar(){
+ calendarEl.innerHTML='';
+ document.getElementById('monthTitle').textContent=monthLabels[viewMonth]+' '+viewYear;
+ dayNames.forEach(d=>{const w=document.createElement('div');w.className='weekday';w.textContent=d;calendarEl.appendChild(w)});
+ const first=new Date(viewYear,viewMonth,1), offset=first.getDay(), count=new Date(viewYear,viewMonth+1,0).getDate();
+ for(let i=0;i<offset;i++){const blank=document.createElement('div');blank.className='date empty';calendarEl.appendChild(blank)}
+ for(let n=1;n<=count;n++){
+  const date=new Date(viewYear,viewMonth,n);date.setHours(0,0,0,0);
+  const b=document.createElement('button');b.type='button';b.className='date';
+  const weekend=date.getDay()===0||date.getDay()===6, past=date<today;
+  b.innerHTML=`<b>${n}</b>`;
+  if(weekend||past){b.classList.add('unavailable');b.disabled=true;b.title=weekend?'Вихідний':'Дата минула'}
+  else{
+   b.innerHTML+=`<span class="dot"></span>`;
+   b.title='Є доступні години';
+   b.onclick=()=>{chosenDate=date;chosenTime=null;renderCalendar();renderTimes()};
+   if(chosenDate&&sameDay(chosenDate,date))b.classList.add('selected');
+  }
+  calendarEl.appendChild(b);
+ }
+ const canPrev=viewYear>today.getFullYear()||(viewYear===today.getFullYear()&&viewMonth>today.getMonth());
+ document.getElementById('prevMonth').disabled=!canPrev;
+ document.getElementById('prevMonth').style.opacity=canPrev?'1':'.35';
+}
+document.getElementById('prevMonth').onclick=()=>{if(viewYear===today.getFullYear()&&viewMonth===today.getMonth())return;viewMonth--;if(viewMonth<0){viewMonth=11;viewYear--}renderCalendar()};
+document.getElementById('nextMonth').onclick=()=>{viewMonth++;if(viewMonth>11){viewMonth=0;viewYear++}renderCalendar()};
+function renderTimes(){timesEl.innerHTML='';const slots=['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00'];const seed=chosenDate.getDate();slots.forEach((t,i)=>{const b=document.createElement('button');b.className='time';b.textContent=t;
+ // A few fixed unavailable slots to demonstrate availability.
+ const busy=(seed+i)%7===2 || (seed+i)%11===3;
+ if(busy){b.disabled=true;b.title='Демонстраційно зайнято'}else b.onclick=()=>{chosenTime=t;document.querySelectorAll('.time').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.getElementById('continue').disabled=false;document.getElementById('timeNote').textContent='Обраний час: '+t};
+ timesEl.appendChild(b)});document.getElementById('continue').disabled=true;document.getElementById('timeNote').textContent='Сірим позначено демонстраційно зайняті години.'}
+function show(n){document.querySelectorAll('.screen').forEach((s,i)=>s.classList.toggle('active',i===n-1));[1,2,3].forEach(i=>document.getElementById('bar'+i).classList.toggle('active',i<=n))}
+function summary(){return `<strong>PWS-сесія</strong><br>${fmt(chosenDate)} · ${dayNames[chosenDate.getDay()]}<br>Початок о ${chosenTime} · 45 хв<br>Вартість: <strong>$50</strong>`}
+document.getElementById('continue').onclick=()=>{document.getElementById('summary').innerHTML=summary();show(2)};
+document.getElementById('back').onclick=()=>show(1);
+document.getElementById('confirm').onclick=()=>{const name=document.getElementById('name').value.trim(),contact=document.getElementById('contact').value.trim();if(!name||!contact){document.getElementById('formError').textContent='Будь ласка, заповніть ім’я та контакт.';return}document.getElementById('formError').textContent='';document.getElementById('finalSummary').innerHTML=summary()+`<br>Клієнт: <strong>${escapeHtml(name)}</strong><br>Контакт: ${escapeHtml(contact)}`;show(3)};
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('restart').onclick=()=>{chosenTime=null;document.getElementById('name').value='';document.getElementById('contact').value='';document.getElementById('comment').value='';show(1);renderTimes()};
+document.getElementById('adminToggle').onclick=()=>alert('У повній версії: календар психолога, список записів, статус підтвердження та оплати, а також автоматичні нагадування в Telegram. У цьому HTML ці функції не підключені.');
+let firstAvailable=new Date(today);
+while(firstAvailable.getDay()===0||firstAvailable.getDay()===6)firstAvailable.setDate(firstAvailable.getDate()+1);
+chosenDate=firstAvailable;viewYear=chosenDate.getFullYear();viewMonth=chosenDate.getMonth();
+renderCalendar();renderTimes();
+</script>
+</body>
+</html>
